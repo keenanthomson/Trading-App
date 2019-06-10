@@ -1,1 +1,1 @@
-# basic-trading-calculator
+# trading-calculator
