@@ -1,0 +1,32 @@
+{
+  "name": "trading_calculator",
+  "version": "1.0.0",
+  "description": "Web calculator for trade sizing",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel . --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keenanthomson/trading_calculator.git"
+  },
+  "author": "Keenan Thomson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keenanthomson/trading_calculator/issues"
+  },
+  "homepage": "https://github.com/keenanthomson/trading_calculator#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^4.1.0"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-env",
+      "babel-preset-react"
+    ]
+  }
+}
