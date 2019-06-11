@@ -1,13 +1,24 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      input: ''
+    };
+    this.textChange = this.textChange.bind(this);
   }
+
+  textChange (e) {
+    this.setState ({
+      input: e.target.value
+    })
+  }
+
   render() {
     return (
-      <form>
-        
-      </form>
+      <div>
+        <input type="text" autoComplete="off" onChange={this.textChange}></input>
+        <button onClick={() => alert(this.state.input)}>Submit</button>
+      </div>
     )
   }
 }
