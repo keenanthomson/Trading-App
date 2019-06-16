@@ -5,7 +5,11 @@
   "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "concurrently \"babel . --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline --watch\" \"nodemon server/app.js\""
+=======
+    "start": "webpack -d --watch"
+>>>>>>> tmpWork
   },
   "repository": {
     "type": "git",
@@ -19,18 +23,26 @@
   "homepage": "https://github.com/keenanthomson/trading_calculator#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "concurrently": "^4.1.0",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+<<<<<<< HEAD
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+=======
+    "webpack": "^2.2.1"
+>>>>>>> tmpWork
   },
   "babel": {
     "presets": [
       "babel-preset-env",
       "babel-preset-react"
     ]
-  }
+  },
+  "devDependencies": {}
 }
