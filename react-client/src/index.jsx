@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <div>
         <input type="text" autoComplete="off" onChange={this.textChange}></input>
-        <button onClick={() => alert(this.state.input)}>Submit</button>
+        <h3>Your current input: {this.state.input}</h3>
       </div>
     )
   }
