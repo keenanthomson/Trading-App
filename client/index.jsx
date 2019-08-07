@@ -5,7 +5,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ''
+      input: null,
+      bitmexperpxbt: null
     };
     this.textChange = this.textChange.bind(this);
   }
@@ -13,6 +14,16 @@ class App extends React.Component {
   textChange (e) {
     this.setState ({
       input: e.target.value
+    })
+  }
+
+  componentDidMount() {
+    $.ajax({
+      URL: ,
+      TYPE: 'GET',
+      success: () => {
+        console.log()
+      }
     })
   }
 
