@@ -1,4 +1,4 @@
-import 'app.css';
+import './app.css';
 
 const url = 'wss://www.bitmex.com/realtime?subscribe=instrument,symbol:XBTUSD';
 const connection = new WebSocket(url);
@@ -10,7 +10,7 @@ class App extends React.Component {
       target: null,
       entry: null,
       stop: null,
-      XBTUSD: null
+      XBTUSD: 'live price engine loading...'
     };
     this.targetChange = this.targetChange.bind(this);
     this.entryChange = this.entryChange.bind(this);
