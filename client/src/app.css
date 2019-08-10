@@ -16,7 +16,18 @@ div .entries-calc{
 
 div .entries-calc-inner {
   border: 1px solid black;
-  padding: 10px;
+  padding: 30px;
+  display: inline-block;
+  width: 100%;
+  background-color: transparent;
+  margin-bottom: 4px;
+  text-align: left;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-image: initial;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
 }
 
 tr {
