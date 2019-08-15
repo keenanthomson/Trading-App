@@ -33,3 +33,14 @@ div .entries-calc-inner {
 tr {
   font-size: 14px;
 }
+
+h3.title {
+  margin-block-start: 0em;
+}
+
+h5.warn {
+  color: #B12704;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
