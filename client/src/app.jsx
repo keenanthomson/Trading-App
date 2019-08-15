@@ -27,10 +27,11 @@ class App extends React.Component {
     connection.onmessage = e => {
       let chunk = JSON.parse(e.data);
       if (chunk.data && chunk.data[0].symbol === "XBTUSD" && chunk.data[0].lastPrice) {
-        this.setState({XBTUSD: `$${chunk.data[0].lastPrice}`})
+        this.setState({XBTUSD: `$${Math.floor(chunk.data[0].lastPrice)}`})
+        document.title = (`XBT/USD ${this.state.XBTUSD}`)
       }
-    }
-  }
+    };
+  };
 
   targetChange (e) {
     this.setState ({
@@ -52,15 +53,18 @@ class App extends React.Component {
 
   renderCalc() {
     if (this.state.target && this.state.entry && this.state.stop) {
-      return (<td>R: {(this.state.target-this.state.entry) / (this.state.entry-this.state.stop)}</td>)
-    }
-  }
+      return (`R: ${(this.state.target-this.state.entry) / (this.state.entry-this.state.stop)}`)
+    
+      } else {
+      return (`Add entry, target, and stop for Portfolio Risk and R...`)
+    };
+  };
 
   render() {
     return (
       <div className="entries-calc">
         <div className="entries-calc-inner">
-          <h3>XBTUSD: {this.state.XBTUSD}</h3>
+          <h3>XBT/USD: {this.state.XBTUSD}</h3>
           <table className="entries">
             <tbody>
               <tr>
