@@ -71,21 +71,21 @@ class App extends React.Component {
     if (this.state.target && this.state.entry && this.state.stop) {
       return (
         <div>
-      <h5>R: {Math.floor(this.state.target-this.state.entry) / (this.state.entry-this.state.stop)}</h5>
-      <h5>Risk: </h5>
+      <h5>R:R = {Math.floor(this.state.target-this.state.entry) / (this.state.entry-this.state.stop)}</h5>
       </div>
       )
-    
       } else {
-      return (<h5 className="warn"><i>Add entry, target, and stop.</i></h5>)
+      return (<h5 className="warn">R:R = <i>Add entry, target, and stop.</i></h5>)
     };
   };
 
   renderPositionSize() {
     if (this.state.portfolio && this.state.risk) {
-      return(<h5>Position Size = {(this.state.portfolio * (1-(this.state.entry/this.state.stop)) / this.state.risk)}</h5>)
-    }
-  }
+      return(<h5>Position Size = ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</h5>)
+    } else {
+      return (<h5 className="warn">Position Size = <i>Complete all fields.</i></h5>)
+    };
+  };
 
   render() {
     return (
