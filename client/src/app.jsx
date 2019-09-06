@@ -12,16 +12,19 @@ class App extends React.Component {
       stop: null,
       risk: null,
       portfolio: null,
-      XBTUSD: 'live price engine loading...'
+      XBTUSD: null
     };
     this.targetChange = this.targetChange.bind(this);
     this.entryChange = this.entryChange.bind(this);
     this.stopChange = this.stopChange.bind(this);
     this.portfolioChange = this.portfolioChange.bind(this);
     this.riskChange = this.riskChange.bind(this);
+    this.loading = this.loading.bind(this);
   }
 
   componentDidMount() {
+    //add loading function here
+
     connection.onopen = () => {
       console.log(`Connection established.`)
     }
@@ -31,11 +34,20 @@ class App extends React.Component {
     connection.onmessage = e => {
       let chunk = JSON.parse(e.data);
       if (chunk.data && chunk.data[0].symbol === "XBTUSD" && chunk.data[0].lastPrice) {
+        // turn off the loading function here
         this.setState({XBTUSD: `$${Math.floor(chunk.data[0].lastPrice)}`})
         document.title = (`XBT/USD ${this.state.XBTUSD}`)
       }
     };
   };
+
+  loading() {
+    let messages = ['live price engine loading', 'live price engine loading.', 'live price engine loading..', 'live price engine loading...'];
+    while (true) {
+      setTimeout(() => this.setState({XBTUSD: messages[i]}), 1000);
+    }
+    // this.loading();
+  }
 
   targetChange (e) {
     this.setState ({
@@ -69,9 +81,10 @@ class App extends React.Component {
 
   renderR() {
     if (this.state.target && this.state.entry && this.state.stop) {
+      let RR = (this.state.target-this.state.entry) / (this.state.entry-this.state.stop);
       return (
         <div>
-      <h5>R:R = {Math.floor(this.state.target-this.state.entry) / (this.state.entry-this.state.stop)}</h5>
+      <h5>R:R = {Math.round(RR * 100) / 100}</h5>
       </div>
       )
       } else {
