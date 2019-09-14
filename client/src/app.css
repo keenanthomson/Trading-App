@@ -1,7 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: rgb(255,255,255);
-  font-family: Trebuchet MS,roboto,ubuntu,sans-serif;
-  color: #131722;
+  background: rgb(275,275,275);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  color: rgb(255,255,255);
 }
 
 div {
@@ -9,25 +13,24 @@ div {
 }
 
 div .entries-calc{
-  margin: 1em;
-  margin-right: 20em;
-  max-width: 100%;
-}
-
-div .entries-calc-inner {
-  border: 1px solid black;
-  padding: 30px;
-  display: inline-block;
-  width: 100%;
-  background-color: transparent;
-  margin-bottom: 4px;
-  text-align: left;
+  background: rgb(58,58,60);
+  margin: 15px;
+  width: 365px;
+  border-radius: 10px;
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.1);
   border-image: initial;
-  border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
+}
+
+div .entries-calc-inner {
+  padding: 30px;
+  display: inline-block;
+  background-color: transparent;
+  width: 100%;
+  text-align: left;
+
 }
 
 tr {
@@ -35,12 +38,21 @@ tr {
 }
 
 h3.title {
+  font-weight: normal;
   margin-block-start: 0em;
 }
 
 h5.warn {
-  color: #B12704;
+  color: 221,221,222;
   margin-block-start: 1em;
   margin-block-end: 1em;
 }
 
+input {
+  font-family: Inconsolata, monospace;
+  background-color: #ffffff;
+  border: 1px solid #EBEBEB;
+  border-radius:2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-left: 20px;
+}

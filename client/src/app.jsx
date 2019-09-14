@@ -12,7 +12,7 @@ class App extends React.Component {
       stop: null,
       risk: null,
       portfolio: null,
-      XBTUSD: null
+      XBTUSD: 'loading...'
     };
     this.targetChange = this.targetChange.bind(this);
     this.entryChange = this.entryChange.bind(this);
@@ -36,7 +36,7 @@ class App extends React.Component {
       if (chunk.data && chunk.data[0].symbol === "XBTUSD" && chunk.data[0].lastPrice) {
         // turn off the loading function here
         this.setState({XBTUSD: `$${Math.floor(chunk.data[0].lastPrice)}`})
-        document.title = (`XBT/USD ${this.state.XBTUSD}`)
+        document.title = (`${this.state.XBTUSD}`)
       }
     };
   };
@@ -49,7 +49,7 @@ class App extends React.Component {
     // this.loading();
   }
 
-  targetChange (e) {
+  targetChange(e) {
     this.setState ({
       target: e.target.value
     })
