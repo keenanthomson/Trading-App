@@ -105,7 +105,13 @@ class App extends React.Component {
       <div className="entries-calc">
         <div className="entries-calc-inner">
           <h3 className="title">XBT/USD: {this.state.XBTUSD}</h3>
-          <table className="entries">
+          <div display="inline" className="portfolioheader">
+            <span>Portfolio Size:</span>
+            <input className="portfolioinput" type="text" autoComplete="off" onChange={this.portfolioChange}></input>
+            <span className="risk">Risk %: </span>
+            <input className="riskinput" type="text" autoComplete="off" onChange={this.riskChange}></input>
+          </div>
+          <table>
             <tbody>
               <tr>
                 <td>Target Price: </td>
@@ -120,20 +126,10 @@ class App extends React.Component {
                 <td><input type="text" autoComplete="off" onChange={this.stopChange}></input></td>
               </tr>
             </tbody>
-          </table>
+          {/* </table>
           {this.renderR()}
           {this.renderPositionSize()}
-          <table>
-            <tbody>
-            <tr>
-                <td>Portfolio Size: </td>
-                <td><input type="text" autoComplete="off" onChange={this.portfolioChange}></input></td>
-              </tr>
-              <tr>
-                <td>Portfolio Risk: </td>
-                <td><input type="text" autoComplete="off" onChange={this.riskChange}></input></td>
-              </tr>
-            </tbody>
+          <table> */}
           </table>
         </div>
       </div>

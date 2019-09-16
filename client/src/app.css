@@ -50,9 +50,33 @@ h5.warn {
 
 input {
   font-family: Inconsolata, monospace;
-  background-color: #ffffff;
-  border: 1px solid #EBEBEB;
+  background-color: rgb(209,209,214);
+  border: 1px solid rgb(209,209,214);
   border-radius:2px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-left: 20px;
+  font-size: 14px;
+}
+
+input:hover {
+  background-color: rgb(229,229,234);
+  border: 1px solid rgb(229,229,234);
+}
+
+.portfolioheader {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.portfolioinput {
+  width: 60px;
+}
+
+.risk {
+  margin-left: 10px;
+}
+
+.riskinput {
+  width: 40px;
+
 }
