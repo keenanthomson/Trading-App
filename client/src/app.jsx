@@ -109,28 +109,30 @@ class App extends React.Component {
             <span>Portfolio Size:</span>
             <input className="portfolioinput" type="text" autoComplete="off" onChange={this.portfolioChange}></input>
             <span className="risk">Risk %: </span>
-            <input className="riskinput" type="text" autoComplete="off" onChange={this.riskChange}></input>
+            <input className="risk" type="text" autoComplete="off" onChange={this.riskChange}></input>
           </div>
-          <table>
-            <tbody>
-              <tr>
-                <td>Target Price: </td>
-                <td><input type="text" autoComplete="off" onChange={this.targetChange}></input></td>
-              </tr>
-              <tr>
-                <td>Entry Price: </td>
-                <td><input type="text" autoComplete="off" onChange={this.entryChange}></input></td>
-              </tr>
-              <tr>
-                <td>Stop Loss: </td>
-                <td><input type="text" autoComplete="off" onChange={this.stopChange}></input></td>
-              </tr>
-            </tbody>
-          {/* </table>
-          {this.renderR()}
-          {this.renderPositionSize()}
-          <table> */}
-          </table>
+          <div className="table">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Target Price: </td>
+                  <td><input className="entries" type="text" autoComplete="off" onChange={this.targetChange}></input></td>
+                </tr>
+                <tr>
+                  <td>Entry Price: </td>
+                  <td><input className="entries" type="text" autoComplete="off" onChange={this.entryChange}></input></td>
+                </tr>
+                <tr>
+                  <td>Stop Loss: </td>
+                  <td><input className="entries" type="text" autoComplete="off" onChange={this.stopChange}></input></td>
+                </tr>
+              </tbody>
+            {/* </table>
+            {this.renderR()}
+            {this.renderPositionSize()}
+            <table> */}
+            </table>
+          </div>
         </div>
       </div>
     )
