@@ -106,32 +106,22 @@ class App extends React.Component {
         <div className="entries-calc-inner">
           <h3 className="title">XBT/USD: {this.state.XBTUSD}</h3>
           <div display="inline" className="portfolioheader">
-            <span>Portfolio Size:</span>
+            <span className="left">Portfolio Size:</span>
             <input className="portfolioinput" type="text" autoComplete="off" onChange={this.portfolioChange}></input>
             <span className="risk">Risk %: </span>
             <input className="risk" type="text" autoComplete="off" onChange={this.riskChange}></input>
           </div>
-          <div className="table">
-            <table>
-              <tbody>
-                <tr>
-                  <td>Target Price: </td>
-                  <td><input className="entries" type="text" autoComplete="off" onChange={this.targetChange}></input></td>
-                </tr>
-                <tr>
-                  <td>Entry Price: </td>
-                  <td><input className="entries" type="text" autoComplete="off" onChange={this.entryChange}></input></td>
-                </tr>
-                <tr>
-                  <td>Stop Loss: </td>
-                  <td><input className="entries" type="text" autoComplete="off" onChange={this.stopChange}></input></td>
-                </tr>
-              </tbody>
-            {/* </table>
+          <div className="entries">
+              <span className="left">Target Price: </span>
+              <input className="entry-box" type="text" autoComplete="off" onChange={this.targetChange}></input>
+              <span className="left">Entry Price: </span>
+              <input className="entry-box" type="text" autoComplete="off" onChange={this.entryChange}></input>
+              <span className="left">Stop Loss: </span>
+              <input className="entry-box" type="text" autoComplete="off" onChange={this.stopChange}></input>
+           <div>
             {this.renderR()}
             {this.renderPositionSize()}
-            <table> */}
-            </table>
+           </div>
           </div>
         </div>
       </div>

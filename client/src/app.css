@@ -6,6 +6,7 @@ body {
   background: rgb(275,275,275);
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   color: rgb(255,255,255);
+  font-variant-numeric: tabular-nums;
 }
 
 div {
@@ -16,7 +17,6 @@ div .entries-calc{
   background: rgb(58,58,60);
   margin: 15px;
   width: 365px;
-  border-radius: 10px;
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.1);
@@ -25,7 +25,7 @@ div .entries-calc{
 }
 
 div .entries-calc-inner {
-  padding: 30px;
+  padding: 20px;
   display: inline-block;
   background-color: transparent;
   width: 100%;
@@ -33,7 +33,11 @@ div .entries-calc-inner {
 
 }
 
-tr {
+div .entries {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  margin: 10px 0 10px 0;
   font-size: 14px;
 }
 
@@ -72,10 +76,12 @@ input:focus {
 }
 
 input.entries {
-  width: 150px;
+  width: 60px;
 }
 
 div.portfolioheader {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr 2fr 1.3fr;
   padding: 15px 2px;
   border-bottom: 0.5px solid rgb(242,242,247);
   border-top: 0.5px solid rgb(242,242,247);
@@ -87,16 +93,26 @@ input.portfolioinput {
   margin-left: 15px;
 }
 
+span.left {
+  width: 90px;
+}
+
 span.risk {
+  width: 50px;
   margin-left: 20px;
 }
 
 input.risk {
-  width: 40px;
-  margin-left: 8px;
+  width: 100%;
+  margin-left: 2px;
+  border-right: 0;
 }
 
 div.table {
   padding: 10px 2px;
   border-bottom: 0.5px solid rgb(242,242,247);
+}
+
+.entry-box {
+  margin: 5px 0 5px 0;
 }
