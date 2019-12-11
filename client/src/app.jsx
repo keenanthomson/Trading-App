@@ -83,20 +83,20 @@ class App extends React.Component {
     if (this.state.target && this.state.entry && this.state.stop) {
       let RR = (this.state.target-this.state.entry) / (this.state.entry-this.state.stop);
       return (
-        <div>
-      <h5>R:R = {Math.round(RR * 100) / 100}</h5>
+      <div>
+        <span>R:R = {Math.round(RR * 100) / 100}</span>
       </div>
       )
       } else {
-      return (<h5 className="warn">R:R = <i>Add entry, target, and stop.</i></h5>)
+      return (<span className="warn">R:R = <i>Add entry, target, and stop.</i></span>)
     };
   };
 
   renderPositionSize() {
     if (this.state.portfolio && this.state.risk) {
-      return(<h5>Position Size = ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</h5>)
+      return(<span>Position Size = ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</span>)
     } else {
-      return (<h5 className="warn">Position Size = <i>Complete all fields.</i></h5>)
+      return (<span className="warn">Position Size = <i>Complete all fields.</i></span>)
     };
   };
 
@@ -119,9 +119,11 @@ class App extends React.Component {
               <span className="left">Stop Loss: </span>
               <input className="entry-box" type="text" autoComplete="off" onChange={this.stopChange}></input>
            <div>
+           </div>
+          </div>
+          <div className="entry-outputs">
             {this.renderR()}
             {this.renderPositionSize()}
-           </div>
           </div>
         </div>
       </div>

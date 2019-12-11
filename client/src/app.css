@@ -37,8 +37,9 @@ div .entries {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: repeat(3, 1fr);
-  margin: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
   font-size: 14px;
+  border-bottom: 0.5px solid rgb(242,242,247)
 }
 
 h3.title {
@@ -46,11 +47,11 @@ h3.title {
   margin-block-start: 0em;
 }
 
-h5.warn {
+/* h5.warn {
   color: 221,221,222;
   margin-block-start: 1em;
   margin-block-end: 1em;
-}
+} */
 
 input {
   font-family: Inconsolata, monospace;
@@ -115,4 +116,9 @@ div.table {
 
 .entry-box {
   margin: 5px 0 5px 0;
+}
+
+.entry-outputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
