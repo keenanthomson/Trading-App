@@ -42,16 +42,12 @@ div .entries {
   border-bottom: 0.5px solid rgb(242,242,247)
 }
 
-h3.title {
+.title {
   font-weight: normal;
   margin-block-start: 0em;
+  padding: 0 0 15px 0;
+  font-size: 16px;
 }
-
-/* h5.warn {
-  color: 221,221,222;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-} */
 
 input {
   font-family: Inconsolata, monospace;
@@ -119,6 +115,11 @@ div.table {
 }
 
 .entry-outputs {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  margin: 15px 0 0 0;
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr); */
+}
+
+.warn {
+
 }

@@ -79,24 +79,28 @@ class App extends React.Component {
     })
   }
 
-  renderR() {
-    if (this.state.target && this.state.entry && this.state.stop) {
-      let RR = (this.state.target-this.state.entry) / (this.state.entry-this.state.stop);
-      return (
-      <div>
-        <span>R:R = {Math.round(RR * 100) / 100}</span>
-      </div>
-      )
-      } else {
-      return (<span className="warn">R:R = <i>Add entry, target, and stop.</i></span>)
-    };
-  };
+  // renderR() {
+  //   if (this.state.target && this.state.entry && this.state.stop) {
+  //     let RR = (this.state.target-this.state.entry) / (this.state.entry-this.state.stop);
+  //     return (
+  //     <div>
+  //       <span>R:R = {Math.round(RR * 100) / 100}</span>
+  //     </div>
+  //     )
+  //     } else {
+  //     return (<span className="warn">R:R = <i>Add entry, target, and stop.</i></span>)
+  //   };
+  // };
 
   renderPositionSize() {
-    if (this.state.portfolio && this.state.risk) {
-      return(<span>Position Size = ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</span>)
+    if (this.state.portfolio && this.state.risk && this.state.stop && this.state.entry) {
+      if (this.state.entry > this.state.stop) {
+        return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</span>)
+      } else if (this.state.entry < this.state.stop) {
+        return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</span>)
+      }
     } else {
-      return (<span className="warn">Position Size = <i>Complete all fields.</i></span>)
+      return (<span className="warn">Position Size: <i>complete fields.</i></span>)
     };
   };
 
@@ -104,7 +108,7 @@ class App extends React.Component {
     return (
       <div className="entries-calc">
         <div className="entries-calc-inner">
-          <h3 className="title">XBT/USD: {this.state.XBTUSD}</h3>
+          <div className="title">XBT/USD: {this.state.XBTUSD}</div>
           <div display="inline" className="portfolioheader">
             <span className="left">Portfolio Size:</span>
             <input className="portfolioinput" type="text" autoComplete="off" onChange={this.portfolioChange}></input>
@@ -122,7 +126,7 @@ class App extends React.Component {
            </div>
           </div>
           <div className="entry-outputs">
-            {this.renderR()}
+            {/* {this.renderR()} */}
             {this.renderPositionSize()}
           </div>
         </div>
