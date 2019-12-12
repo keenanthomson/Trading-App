@@ -19,7 +19,7 @@ class App extends React.Component {
     this.stopChange = this.stopChange.bind(this);
     this.portfolioChange = this.portfolioChange.bind(this);
     this.riskChange = this.riskChange.bind(this);
-    this.loading = this.loading.bind(this);
+    this.loading = this.loading.bind(this); 
   }
 
   componentDidMount() {
@@ -97,7 +97,7 @@ class App extends React.Component {
       if (this.state.entry > this.state.stop) {
         return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</span>)
       } else if (this.state.entry < this.state.stop) {
-        return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.stop/this.state.entry)))}</span>)
+        return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / (1-(this.state.entry/this.state.stop)))}</span>)
       }
     } else {
       return (<span className="warn">Position Size: <i>complete fields.</i></span>)
@@ -108,7 +108,10 @@ class App extends React.Component {
     return (
       <div className="entries-calc">
         <div className="entries-calc-inner">
-          <div className="title">XBT/USD: {this.state.XBTUSD}</div>
+          <div className="title-grid">
+            <div className="title-price">XBT/USD: {this.state.XBTUSD}</div>
+            <div className="title-name">Bitmex</div>
+          </div>
           <div display="inline" className="portfolioheader">
             <span className="left">Portfolio Size:</span>
             <input className="portfolioinput" type="text" autoComplete="off" onChange={this.portfolioChange}></input>
@@ -125,7 +128,7 @@ class App extends React.Component {
            <div>
            </div>
           </div>
-          <div className="entry-outputs">
+          <div className="position-size">
             {/* {this.renderR()} */}
             {this.renderPositionSize()}
           </div>
