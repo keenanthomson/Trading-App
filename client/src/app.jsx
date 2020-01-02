@@ -95,9 +95,9 @@ class App extends React.Component {
   renderPositionSize() {
     if (this.state.portfolio && this.state.risk && this.state.stop && this.state.entry) {
       if (this.state.entry > this.state.stop) {
-        return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / ((this.state.stop/this.state.entry) - 1))}</span>)
-      } else if (this.state.entry < this.state.stop) {
         return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / ((this.state.entry/this.state.stop) - 1))}</span>)
+      } else if (this.state.entry < this.state.stop) {
+        return(<span className="">Position Size: ${Math.ceil((this.state.portfolio * this.state.risk) / ((this.state.stop/this.state.entry) - 1))}</span>)
       }
     }
     return (<span className="warn">Position Size: <i>complete fields.</i></span>)
