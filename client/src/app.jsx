@@ -1,4 +1,5 @@
 import './app.css';
+import TradingViewWidget from 'react-tradingview-widget';
 
 const url = 'wss://www.bitmex.com/realtime?subscribe=instrument,symbol:XBTUSD';
 const connection = new WebSocket(url);
@@ -120,7 +121,7 @@ class App extends React.Component {
           </div>
         </div>
       <div>
-
+        <TradingViewWidget symbol="NASDAQ:AAPL" />
       </div>
     </div>
     )
