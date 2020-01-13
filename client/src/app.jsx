@@ -79,19 +79,6 @@ class App extends React.Component {
     })
   }
 
-  // renderR() {
-  //   if (this.state.target && this.state.entry && this.state.stop) {
-  //     let RR = (this.state.target-this.state.entry) / (this.state.entry-this.state.stop);
-  //     return (
-  //     <div>
-  //       <span>R:R = {Math.round(RR * 100) / 100}</span>
-  //     </div>
-  //     )
-  //     } else {
-  //     return (<span className="warn">R:R = <i>Add entry, target, and stop.</i></span>)
-  //   };
-  // };
-
   renderPositionSize() {
     if (this.state.portfolio && this.state.risk && this.state.stop && this.state.entry) {
       if (this.state.entry > this.state.stop) {
@@ -132,26 +119,8 @@ class App extends React.Component {
             {this.renderPositionSize()}
           </div>
         </div>
-        <div class="tradingview-widget-container">
-        <div id="tradingview_6f052"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
-        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-        <script type="text/javascript">
-        new TradingView.widget(
-        {
-        "autosize": true,
-        "symbol": "NASDAQ:AAPL",
-        "interval": "D",
-        "timezone": "Etc/UTC",
-        "theme": "Light",
-        "style": "1",
-        "locale": "en",
-        "toolbar_bg": "#f1f3f6",
-        "enable_publishing": false,
-        "container_id": "tradingview_6f052"
-      }
-        );
-        </script>
+      <div>
+
       </div>
     </div>
     )
