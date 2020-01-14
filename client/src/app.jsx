@@ -122,10 +122,14 @@ class App extends React.Component {
         </div>
       <div>
         <TradingViewWidget 
-        symbol="NASDAQ:AAPL"
+        symbol="BITMEX:XBTUSD"
+        hide_side_toolbar="false"
+        studies="[]"
         theme="Dark"
         width="auto"
         height="400px"
+        details="true"
+        hide_legend="true"
         />
       </div>
     </div>
