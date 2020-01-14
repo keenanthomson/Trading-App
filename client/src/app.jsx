@@ -121,7 +121,12 @@ class App extends React.Component {
           </div>
         </div>
       <div>
-        <TradingViewWidget symbol="NASDAQ:AAPL" />
+        <TradingViewWidget 
+        symbol="NASDAQ:AAPL"
+        theme="Dark"
+        width="auto"
+        height="400px"
+        />
       </div>
     </div>
     )
