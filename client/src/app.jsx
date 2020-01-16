@@ -1,5 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Widget from './widget.jsx';
 import './app.css';
-import TradingViewWidget from 'react-tradingview-widget';
 
 const url = 'wss://www.bitmex.com/realtime?subscribe=instrument,symbol:XBTUSD';
 const connection = new WebSocket(url);
@@ -20,7 +22,6 @@ class App extends React.Component {
     this.stopChange = this.stopChange.bind(this);
     this.portfolioChange = this.portfolioChange.bind(this);
     this.riskChange = this.riskChange.bind(this);
-    this.loading = this.loading.bind(this); 
   }
 
   componentDidMount() {
@@ -41,14 +42,6 @@ class App extends React.Component {
       }
     };
   };
-
-  loading() {
-    let messages = ['live price engine loading', 'live price engine loading.', 'live price engine loading..', 'live price engine loading...'];
-    while (true) {
-      setTimeout(() => this.setState({XBTUSD: messages[i]}), 1000);
-    }
-    // this.loading();
-  }
 
   targetChange(e) {
     this.setState ({
@@ -100,72 +93,26 @@ class App extends React.Component {
             <div className="title-name">Bitmex</div>
           </div>
           <div display="inline" className="portfolioheader">
-            <span className="left">Portfolio Size:</span>
+            <div className="left">Portfolio Size:</div>
             <input className="portfolioinput" type="text" autoComplete="off" onChange={this.portfolioChange}></input>
-            <span className="risk">Risk %: </span>
+            <div className="risk">Risk %: </div>
             <input className="risk" type="text" autoComplete="off" onChange={this.riskChange}></input>
           </div>
           <div className="entries">
-              <span className="left">Target Price: </span>
+              <div className="left">Target Price: </div>
               <input className="entry-box" type="text" autoComplete="off" onChange={this.targetChange}></input>
-              <span className="left">Entry Price: </span>
+              <div className="left">Entry Price: </div>
               <input className="entry-box" type="text" autoComplete="off" onChange={this.entryChange}></input>
-              <span className="left">Stop Loss: </span>
+              <div className="left">Stop Loss Price: </div>
               <input className="entry-box" type="text" autoComplete="off" onChange={this.stopChange}></input>
            <div>
            </div>
           </div>
           <div className="position-size">
-            {/* {this.renderR()} */}
             {this.renderPositionSize()}
           </div>
         </div>
-      <div>
-        <TradingViewWidget 
-        symbol="BITMEX:XBTUSD"
-        container_id= "technical-analysis"
-        hide_side_toolbar="false"
-        studies="[]"
-        theme="Dark"
-        width="auto"
-        height="400px"
-        details="true"
-        hide_legend="true"
-        />
-      </div>
-  {/* <div class="tradingview-widget-container">
-  <div id="technical-analysis"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <script type="text/javascript">
-  new TradingView.widget(
-  {
-  "container_id": "technical-analysis",
-  "width": 998,
-  "height": 610,
-  "symbol": "AAPL",
-  "interval": "D",
-  "timezone": "exchange",
-  "theme": "Light",
-  "style": "1",
-  "toolbar_bg": "#f1f3f6",
-  "withdateranges": true,
-  "hide_side_toolbar": false,
-  "allow_symbol_change": true,
-  "save_image": false,
-  "studies": [
-    "ROC@tv-basicstudies",
-    "StochasticRSI@tv-basicstudies",
-    "MASimple@tv-basicstudies"
-  ],
-  "show_popup_button": true,
-  "popup_width": "1000",
-  "popup_height": "650",
-  "locale": "en"
-}
-  );
-  </script> */}
-{/* </div> */}
+      <Widget/>
     </div>
     )
   }
