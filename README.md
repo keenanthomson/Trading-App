@@ -2,7 +2,7 @@
 
 > Trading calculator for determining position size and R:R.
 
-![Image of v1.0 Trading Calculator](https://random-kt.s3.us-east-2.amazonaws.com/Screen+Shot+2019-09-17+at+12.55.11+AM.png)
+![Image of v1.0 Trading Calculator](tradingappdemo320.gif)
 
 Currently supporting real-time quotes from:
 
@@ -10,6 +10,7 @@ Currently supporting real-time quotes from:
 
 Planned features include:
 - additional real time quotes
+- automatic position mapping to charting widget
 - ability to save position ideas
 - position portfolio view
 
