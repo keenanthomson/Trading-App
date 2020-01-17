@@ -1,6 +1,6 @@
 # Trading Calculator v1.0
 
-> Trading calculator for determining position size and R:R.
+> Margin trading calculator for determining position size.
 
 ![Image of v1.0 Trading Calculator](tradingappdemo320.gif)
 
