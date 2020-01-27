@@ -92,12 +92,12 @@ class App extends React.Component {
     if (this.state.modalOpen) {
       return(<Modal></Modal>)
     }
-  }
+  };
 
   render() {
     return (
       <div className="entries-calc">
-              {this.renderModal()}
+        {this.renderModal()}
         <div className="entries-calc-inner">
           <div className="title-grid">
             <div className="title-price">XBT/USD: {this.state.XBTUSD}</div>

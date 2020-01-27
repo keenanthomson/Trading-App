@@ -132,4 +132,5 @@ div.table {
 
 .modal {
   position: absolute;
+  z-index: 2000;
 }
