@@ -15,7 +15,8 @@ class App extends React.Component {
       stop: null,
       risk: null,
       portfolio: null,
-      XBTUSD: 'loading...'
+      XBTUSD: 'loading...',
+      modelOpen: false,
     };
     this.targetChange = this.targetChange.bind(this);
     this.entryChange = this.entryChange.bind(this);
@@ -42,6 +43,10 @@ class App extends React.Component {
       }
     };
   };
+
+  // openWebsocket() {
+  // move componentDidMount logic here
+  // }
 
   targetChange(e) {
     this.setState ({
