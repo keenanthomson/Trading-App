@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Widget from './widget.jsx';
+import Modal from './modal.jsx';
 import './app.css';
 
 const url = 'wss://www.bitmex.com/realtime?subscribe=instrument,symbol:XBTUSD';
@@ -16,7 +17,7 @@ class App extends React.Component {
       risk: null,
       portfolio: null,
       XBTUSD: 'loading...',
-      modelOpen: false,
+      modalOpen: true,
     };
     this.targetChange = this.targetChange.bind(this);
     this.entryChange = this.entryChange.bind(this);
@@ -26,8 +27,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    //add loading function here
+    this.openWebsocket();
+  };
 
+  openWebsocket() {
     connection.onopen = () => {
       console.log(`Connection established.`)
     }
@@ -42,11 +45,7 @@ class App extends React.Component {
         document.title = (`${this.state.XBTUSD}`)
       }
     };
-  };
-
-  // openWebsocket() {
-  // move componentDidMount logic here
-  // }
+  }
 
   targetChange(e) {
     this.setState ({
@@ -89,9 +88,16 @@ class App extends React.Component {
     return (<span className="warn">Position Size: <i>complete fields.</i></span>)
   };
 
+  renderModal() {
+    if (this.state.modalOpen) {
+      return(<Modal></Modal>)
+    }
+  }
+
   render() {
     return (
       <div className="entries-calc">
+              {this.renderModal()}
         <div className="entries-calc-inner">
           <div className="title-grid">
             <div className="title-price">XBT/USD: {this.state.XBTUSD}</div>
