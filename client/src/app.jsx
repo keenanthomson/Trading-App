@@ -17,7 +17,7 @@ class App extends React.Component {
       risk: null,
       portfolio: null,
       XBTUSD: 'loading...',
-      modalOpen: true,
+      modalOpen: false,
     };
     this.targetChange = this.targetChange.bind(this);
     this.entryChange = this.entryChange.bind(this);
