@@ -105,6 +105,7 @@ class App extends React.Component {
             <div className="title-price">XBT/USD: {this.state.XBTUSD}</div>
             <SymbolSelector
             direction={"down"}
+            symbol={this.state.symbol}
             />
           </div>
           <div display="inline" className="portfolioheader">

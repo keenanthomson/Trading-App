@@ -156,6 +156,11 @@ div.table {
 
 #dropdown-button-drop-down{
   color: white;
-  background-color: green;
-  border-radius: 8px;
+  background-color: rgb(19,23,34);
+  border-color: rgb(19,23,34);
+  border-radius: 4px;
+}
+
+.btn-toolbar {
+  margin-left: auto;
 }
