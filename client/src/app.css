@@ -151,5 +151,11 @@ div.table {
 }
 
 .dropdown-button-drop-down {
-  
+
+}
+
+#dropdown-button-drop-down{
+  color: white;
+  background-color: green;
+  border-radius: 8px;
 }

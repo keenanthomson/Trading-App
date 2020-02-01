@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Modal from './modal.jsx';
 import SymbolSelector from './symbolSelect.jsx';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 let url = 'wss://www.bitmex.com/realtime?subscribe=instrument';
