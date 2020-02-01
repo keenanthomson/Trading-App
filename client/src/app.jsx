@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Widget from './widget.jsx';
 import Modal from './modal.jsx';
+import TradingViewWidget, {Themes} from 'react-tradingview-widget';
 import './app.css';
 
 const url = 'wss://www.bitmex.com/realtime?subscribe=instrument,symbol:XBTUSD';
@@ -17,6 +17,7 @@ class App extends React.Component {
       risk: null,
       portfolio: null,
       XBTUSD: 'loading...',
+      symbol: "XBTUSD",
       modalOpen: false,
     };
     this.targetChange = this.targetChange.bind(this);
@@ -27,10 +28,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.openWebsocket();
+    this.openWebsocket(this.state.symbol);
   };
 
-  openWebsocket() {
+  openWebsocket(symbol) {
     connection.onopen = () => {
       console.log(`Connection established.`)
     }
@@ -123,7 +124,17 @@ class App extends React.Component {
             {this.renderPositionSize()}
           </div>
         </div>
-      <Widget/>
+        <div>
+          <TradingViewWidget 
+          symbol={"BITMEX:XBTUSD"}
+          theme={Themes.DARK}
+          container_id={"technical-analysis"}
+          width={auto}
+          height={400}
+          details={false}
+          hide_legend={true}
+          />
+      </div>
     </div>
     )
   }
