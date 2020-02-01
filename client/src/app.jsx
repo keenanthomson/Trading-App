@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './modal.jsx';
+import SymbolSelector from './symbolSelect.jsx';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
 import './app.css';
 
-const url = 'wss://www.bitmex.com/realtime?subscribe=instrument,symbol:XBTUSD';
-const connection = new WebSocket(url);
+let url = 'wss://www.bitmex.com/realtime?subscribe=instrument';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,13 +25,14 @@ class App extends React.Component {
     this.stopChange = this.stopChange.bind(this);
     this.portfolioChange = this.portfolioChange.bind(this);
     this.riskChange = this.riskChange.bind(this);
-  }
+  };
 
   componentDidMount() {
     this.openWebsocket(this.state.symbol);
   };
 
   openWebsocket(symbol) {
+    let connection = new WebSocket(`${url},symbol=${this.state.symbol}`)
     connection.onopen = () => {
       console.log(`Connection established.`)
     }
@@ -40,8 +41,7 @@ class App extends React.Component {
     }
     connection.onmessage = e => {
       let chunk = JSON.parse(e.data);
-      if (chunk.data && chunk.data[0].symbol === "XBTUSD" && chunk.data[0].lastPrice) {
-        // turn off the loading function here
+      if (chunk.data && chunk.data[0].symbol === this.state.symbol && chunk.data[0].lastPrice) {
         this.setState({XBTUSD: `$${Math.floor(chunk.data[0].lastPrice)}`})
         document.title = (`${this.state.XBTUSD}`)
       }
@@ -102,7 +102,9 @@ class App extends React.Component {
         <div className="entries-calc-inner">
           <div className="title-grid">
             <div className="title-price">XBT/USD: {this.state.XBTUSD}</div>
-            <div className="title-name">Bitmex</div>
+            <SymbolSelector
+            direction={"down"}
+            />
           </div>
           <div display="inline" className="portfolioheader">
             <div className="left">Portfolio Size:</div>
@@ -129,7 +131,7 @@ class App extends React.Component {
           symbol={"BITMEX:XBTUSD"}
           theme={Themes.DARK}
           container_id={"technical-analysis"}
-          width={auto}
+          width={"auto"}
           height={400}
           details={false}
           hide_legend={true}
