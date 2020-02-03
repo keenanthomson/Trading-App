@@ -10,13 +10,13 @@ export default function SymbolSelector(props) {
           <DropdownButton
             drop={'down'}
             variant="secondary"
-            title={props.symbol}
+            title={props.activeExchange}
             id={`dropdown-button-drop-down`}
             key={1}
           >
-            <Dropdown.Item eventKey="1">XBTUSD</Dropdown.Item>
-            <Dropdown.Item eventKey="2">ETHUSD</Dropdown.Item>
-            <Dropdown.Item eventKey="3">ETHXBT</Dropdown.Item>
+            {props.exchanges.map((elem, idx) => {
+              return <Dropdown.Item eventKey={idx}>{elem}</Dropdown.Item>
+            })} 
           </DropdownButton>
       </ButtonToolbar>
     </>

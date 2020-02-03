@@ -106,6 +106,8 @@ class App extends React.Component {
             <SymbolSelector
             direction={"down"}
             symbol={this.state.symbol}
+            exchanges={["Bitmex"]}
+            activeExchange={"Bitmex"}
             />
           </div>
           <div display="inline" className="portfolioheader">
