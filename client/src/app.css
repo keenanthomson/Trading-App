@@ -161,6 +161,7 @@ div.table {
   margin-left: auto;
 }
 
-div.dropdown-menu.show {
+/* div.dropdown-menu.show {
   transform: translate3d(0px, 0px, 0px);
-}
+  THIS WON"T WORK, STYLE IS BEING APPLIED INLINE
+} */

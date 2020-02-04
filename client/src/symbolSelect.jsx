@@ -15,7 +15,7 @@ export default function SymbolSelector(props) {
             key={1}
           >
             {props.exchanges.map((elem, idx) => {
-              return <Dropdown.Item eventKey={idx}>{elem}</Dropdown.Item>
+              return <Dropdown.Item eventKey={idx} key={idx}>{elem}</Dropdown.Item>
             })} 
           </DropdownButton>
       </ButtonToolbar>

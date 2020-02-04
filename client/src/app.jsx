@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './modal.jsx';
 import SymbolSelector from './symbolSelect.jsx';
@@ -8,7 +8,7 @@ import './app.css';
 
 let url = 'wss://www.bitmex.com/realtime?subscribe=instrument';
 
-class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
