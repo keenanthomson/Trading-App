@@ -143,7 +143,5 @@ export default class App extends Component {
       </div>
     </div>
     )
-  }
-}
-
-ReactDOM.render(<App/>, document.getElementById('app'));
+  };
+};
