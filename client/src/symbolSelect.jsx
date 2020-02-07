@@ -12,10 +12,12 @@ export default function SymbolSelector(props) {
             variant="secondary"
             title={props.activeExchange}
             id={`dropdown-button-drop-down`}
+            className="symbol-dropdown"
             key={1}
+            alignRight
           >
             {props.exchanges.map((elem, idx) => {
-              return <Dropdown.Item eventKey={idx} key={idx}>{elem}</Dropdown.Item>
+              return <Dropdown.Item eventKey={idx} key={idx} className="symbol-dropdown-item">{elem}</Dropdown.Item>
             })} 
           </DropdownButton>
       </ButtonToolbar>

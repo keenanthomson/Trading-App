@@ -153,15 +153,16 @@ div.table {
   padding: 0 0 0 0;
 }
 
-#dropdown-button-drop-down:hover {
-    background-color: rgb(19,23,34);
-}
-
 .btn-toolbar {
   margin-left: auto;
 }
 
-/* div.dropdown-menu.show {
-  transform: translate3d(0px, 0px, 0px);
-  THIS WON"T WORK, STYLE IS BEING APPLIED INLINE
-} */
+.symbol-dropdown {
+  background-color: rgb(19,23,34);
+}
+
+.symbol-dropdown-item {
+  min-width: 5rem;
+  padding: 0 5px 0 20px;
+  margin: 0 0 0 auto;
+}

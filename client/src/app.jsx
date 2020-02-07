@@ -108,6 +108,7 @@ export default class App extends Component {
             symbol={this.state.symbol}
             exchanges={["Bitmex"]}
             activeExchange={"Bitmex"}
+            itemStyle={{right: "0px !important", left: "10px"}}
             />
           </div>
           <div display="inline" className="portfolioheader">
