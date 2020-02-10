@@ -15,6 +15,7 @@ export default function SymbolSelector(props) {
             className="symbol-dropdown"
             key={1}
             alignRight
+            focusFirstItemOnShow={false}
           >
             {props.exchanges.map((elem, idx) => {
               return <Dropdown.Item eventKey={idx} key={idx} className="symbol-dropdown-item">{elem}</Dropdown.Item>
