@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Modal from './modal.jsx';
 import SymbolSelector from './symbolSelect.jsx';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
