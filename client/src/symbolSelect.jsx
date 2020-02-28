@@ -6,7 +6,10 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 export default function SymbolSelector(props) {
   return (
     <>
-      <ButtonToolbar>
+      <ButtonToolbar 
+      className="button-toolbar"
+      onMouseDown={ (e) => e.preventDefault() } 
+      onMouseUp={ (e) => e.preventDefault() } >
           <DropdownButton
             drop={'down'}
             variant="secondary"
