@@ -17,7 +17,8 @@ export default class App extends Component {
       stop: null,
       risk: null,
       portfolio: null,
-      XBTUSD: 'loading...',
+      symbolPrice: 'loading...',
+      symbols: ["XBTUSD"],
       activeSymbol: "XBTUSD",
       modalOpen: false,
       activeExchange: "Bitmex",
@@ -34,7 +35,7 @@ export default class App extends Component {
   };
 
   openWebsocket(symbol) {
-    let connection = new WebSocket(`${url},symbol=${this.state.symbol}`)
+    let connection = new WebSocket(`${url},symbol=${this.state.activeSymbol}`)
     connection.onopen = () => {
       console.log(`Connection established.`)
     }
@@ -43,9 +44,9 @@ export default class App extends Component {
     }
     connection.onmessage = e => {
       let chunk = JSON.parse(e.data);
-      if (chunk.data && chunk.data[0].symbol === this.state.symbol && chunk.data[0].lastPrice) {
-        this.setState({XBTUSD: `$${Math.floor(chunk.data[0].lastPrice)}`})
-        document.title = (`${this.state.XBTUSD}`)
+      if (chunk.data && chunk.data[0].symbol === this.state.activeSymbol && chunk.data[0].lastPrice) {
+        this.setState({symbolPrice: `$${Math.floor(chunk.data[0].lastPrice)}`})
+        document.title = (`${this.state.symbolPrice}`)
       }
     };
   }
@@ -103,16 +104,16 @@ export default class App extends Component {
         {this.renderModal()}
         <div className="entries-calc-inner">
           <div className="title-grid">
-            {/* <div className="title-price">XBT/USD: {this.state.XBTUSD}</div> */}
             <SymbolSelector
             direction={"down"}
             symbols={this.state.symbols}
             activeSymbol={this.state.activeSymbol}
             />
+            <div className="title-price">{this.state.symbolPrice}</div>
             <ExchangeSelector
             direction={"down"}
             exchanges={["Bitmex"]}
-            activeExchange={"Bitmex"}
+            activeExchange={this.state.activeExchange}
             />
           </div>
           <div display="inline" className="portfolioheader">

@@ -44,14 +44,14 @@ div .entries {
 
 .title-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 .title-price {
   font-weight: normal;
-  margin-block-start: 0em;
+  margin: 0 auto 0 auto;
   padding: 0 0 15px 0;
-  font-size: 16px;
+  /* font-size: 16px; */
 }
 
 .title-name {
@@ -157,13 +157,21 @@ div.table {
   padding: 0 5px 0 20px;
 }
 
-.btn-toolbar {
-  margin-left: auto;
+/* .btn-toolbar-exchange {
+  margin-left: auto !important;
 }
+
+.btn-toolbar-symbol {
+  margin-right: auto;
+} */
 
 .symbol-dropdown {
   background-color: rgb(19,23,34);
+  margin-right: auto;
 }
 
-
+.exchange-dropdown {
+  background-color: rgb(19,23,34);
+  margin-left: auto;
+}
 

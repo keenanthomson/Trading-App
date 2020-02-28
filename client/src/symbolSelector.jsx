@@ -5,7 +5,7 @@ export default function ExchangeSelector(props) {
   return (
     <>
       <ButtonToolbar 
-        className="button-toolbar"
+        // className="button-toolbar-symbol"
         onMouseDown={ (e) => e.preventDefault() } 
         onMouseUp={ (e) => e.preventDefault() } >
             <DropdownButton
@@ -15,7 +15,6 @@ export default function ExchangeSelector(props) {
               id={`dropdown-button-drop-down`}
               className="symbol-dropdown"
               key={2}
-              alignLeft
               focusFirstItemOnShow={false}
             >
               {props.symbols.map((elem, idx) => {
