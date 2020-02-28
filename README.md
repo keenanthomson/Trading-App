@@ -14,9 +14,6 @@ Planned features include:
 - ability to save position ideas
 - position portfolio view
 
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
 ---
 
 ## Getting Started
@@ -33,5 +30,5 @@ In your terminal,
 In your browser,
 - [ ] Navigate to `http://localhost:3000`
 
-### Testing
-available soon...
+## License
+[MIT](https://github.com/keenanthomson/Trading-App/blob/master/LICENSE.md)
