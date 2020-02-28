@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Modal from './modal.jsx';
-import SymbolSelector from './symbolSelect.jsx';
+import ExchangeSelector from './exchangeSelector.jsx';
+import SymbolSelector from './symbolSelector.jsx';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -17,8 +18,9 @@ export default class App extends Component {
       risk: null,
       portfolio: null,
       XBTUSD: 'loading...',
-      symbol: "XBTUSD",
+      activeSymbol: "XBTUSD",
       modalOpen: false,
+      activeExchange: "Bitmex",
     };
     this.targetChange = this.targetChange.bind(this);
     this.entryChange = this.entryChange.bind(this);
@@ -101,13 +103,16 @@ export default class App extends Component {
         {this.renderModal()}
         <div className="entries-calc-inner">
           <div className="title-grid">
-            <div className="title-price">XBT/USD: {this.state.XBTUSD}</div>
+            {/* <div className="title-price">XBT/USD: {this.state.XBTUSD}</div> */}
             <SymbolSelector
             direction={"down"}
-            symbol={this.state.symbol}
+            symbols={this.state.symbols}
+            activeSymbol={this.state.activeSymbol}
+            />
+            <ExchangeSelector
+            direction={"down"}
             exchanges={["Bitmex"]}
             activeExchange={"Bitmex"}
-            itemStyle={{right: "0px !important", left: "10px"}}
             />
           </div>
           <div display="inline" className="portfolioheader">

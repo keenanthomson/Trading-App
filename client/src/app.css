@@ -153,6 +153,10 @@ div.table {
   padding: 0 0 0 0;
 }
 
+.symbol-dropdown-item {
+  padding: 0 5px 0 20px;
+}
+
 .btn-toolbar {
   margin-left: auto;
 }
@@ -161,25 +165,5 @@ div.table {
   background-color: rgb(19,23,34);
 }
 
-.symbol-dropdown-item {
-  min-width: 5rem;
-  padding: 0 5px 0 20px;
-  margin: 0 0 0 auto;
-}
 
-/* .btn-secondary:focus {
-  box-shadow: 0 0 0 0rem;
-}
 
-.show>.btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0rem;
-} */
-
-.btn {
-  transition: none;
-  outline: none;
-}
-/* 
-.button-toolbar:onMouseDown {
-  outline: none;
-} */

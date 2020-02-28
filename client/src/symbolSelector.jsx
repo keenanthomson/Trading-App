@@ -1,0 +1,28 @@
+import React from 'react';
+import {Dropdown, ButtonToolbar, DropdownButton} from 'react-bootstrap';
+
+export default function ExchangeSelector(props) {
+  return (
+    <>
+      <ButtonToolbar 
+        className="button-toolbar"
+        onMouseDown={ (e) => e.preventDefault() } 
+        onMouseUp={ (e) => e.preventDefault() } >
+            <DropdownButton
+              drop={'down'}
+              variant="secondary"
+              title={props.activeSymbol}
+              id={`dropdown-button-drop-down`}
+              className="symbol-dropdown"
+              key={2}
+              alignLeft
+              focusFirstItemOnShow={false}
+            >
+              {props.symbols.map((elem, idx) => {
+                return <Dropdown.Item eventKey={idx} key={idx} className="symbol-dropdown-item">{elem}</Dropdown.Item>
+              })} 
+            </DropdownButton>
+      </ButtonToolbar>
+    </>
+  )
+}
