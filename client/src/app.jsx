@@ -35,7 +35,7 @@ export default class App extends Component {
   };
 
   openWebsocket(symbol) {
-    let connection = new WebSocket(`${url},symbol=${this.state.activeSymbol}`)
+    let connection = new WebSocket(`${url},symbol=${symbol}`)
     connection.onopen = () => {
       console.log(`Connection established.`)
     }
@@ -49,6 +49,10 @@ export default class App extends Component {
         document.title = (`${this.state.symbolPrice}`)
       }
     };
+  }
+
+  changeSymbol(newSymbol) {
+
   }
 
   targetChange(e) {
@@ -108,6 +112,7 @@ export default class App extends Component {
             direction={"down"}
             symbols={this.state.symbols}
             activeSymbol={this.state.activeSymbol}
+            changeSymbol={this.changeSymbol}
             />
             <div className="title-price">{this.state.symbolPrice}</div>
             <ExchangeSelector

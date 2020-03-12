@@ -5,9 +5,8 @@ export default function ExchangeSelector(props) {
   return (
     <>
       <ButtonToolbar 
-        // className="button-toolbar-exchange"
-        onMouseDown={ (e) => e.preventDefault() } 
-        onMouseUp={ (e) => e.preventDefault() } >
+        onMouseDown={() => e.preventDefault()} 
+        onMouseUp={() => e.preventDefault()} >
             <DropdownButton
               drop={'down'}
               variant="secondary"
