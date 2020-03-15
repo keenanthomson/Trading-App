@@ -18,7 +18,7 @@ export default class App extends Component {
       risk: null,
       portfolio: null,
       symbolPrice: 'loading...',
-      symbols: ["XBTUSD"],
+      symbols: ["XBTUSD", "ETHUSD"],
       activeSymbol: "XBTUSD",
       modalOpen: false,
       activeExchange: "Bitmex",
@@ -52,7 +52,7 @@ export default class App extends Component {
   }
 
   changeSymbol(newSymbol) {
-
+    console.log(`changeSymbol fired! this is the value passed in --> ${newSymbol}`)
   }
 
   targetChange(e) {
