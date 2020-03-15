@@ -15,10 +15,18 @@ export default function ExchangeSelector(props) {
               className="symbol-dropdown"
               key={2}
               focusFirstItemOnShow={false}
-              onSelect={(evtKey, evt) => props.changeSymbol(Object.keys(evt))}
             >
               {props.symbols.map((elem, idx) => {
-                return <Dropdown.Item eventKey={idx} key={idx} className="symbol-dropdown-item">{elem}</Dropdown.Item>
+                return (
+                  <Dropdown.Item 
+                  eventKey={elem} 
+                  key={idx} 
+                  className="symbol-dropdown-item"
+                  onSelect={(evtKey) => props.changeSymbol(evtKey)}
+                  >
+                    {elem}
+                  </Dropdown.Item>
+                )
               })} 
             </DropdownButton>
       </ButtonToolbar>

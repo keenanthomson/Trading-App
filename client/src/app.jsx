@@ -28,6 +28,7 @@ export default class App extends Component {
     this.stopChange = this.stopChange.bind(this);
     this.portfolioChange = this.portfolioChange.bind(this);
     this.riskChange = this.riskChange.bind(this);
+    this.changeSymbol = this.changeSymbol.bind(this);
   };
 
   componentDidMount() {
