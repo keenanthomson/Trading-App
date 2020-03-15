@@ -18,7 +18,14 @@ export default function ExchangeSelector(props) {
               focusFirstItemOnShow={false}
             >
               {props.exchanges.map((elem, idx) => {
-                return <Dropdown.Item eventKey={idx} key={idx} className="symbol-dropdown-item">{elem}</Dropdown.Item>
+                return (
+                  <Dropdown.Item 
+                  eventKey={elem} 
+                  key={idx} 
+                  className="symbol-dropdown-item">
+                    {elem}
+                  </Dropdown.Item>
+                  )
               })} 
             </DropdownButton>
       </ButtonToolbar>

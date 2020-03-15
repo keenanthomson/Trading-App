@@ -17,7 +17,7 @@ export default class App extends Component {
       stop: null,
       risk: null,
       portfolio: null,
-      symbolPrice: 'loading...',
+      symbolPrice: '',
       symbols: ["XBTUSD", "ETHUSD"],
       activeSymbol: "XBTUSD",
       modalOpen: false,
@@ -32,17 +32,18 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    this.openWebsocket(this.state.symbol);
+    this.openWebsocket(this.state.activeSymbol);
   };
 
   openWebsocket(symbol) {
-    let connection = new WebSocket(`${url},symbol=${symbol}`)
+    let connection = new WebSocket(`${url},symbol=${symbol}`);
+    this.setState({symbolPrice: 'loading...'});
     connection.onopen = () => {
-      console.log(`Connection established.`)
-    }
+      console.log(`Connection established.`);
+    };
     connection.onerror = error => {
       console.log(`WebSocket error: ${error}`);
-    }
+    };
     connection.onmessage = e => {
       let chunk = JSON.parse(e.data);
       if (chunk.data && chunk.data[0].symbol === this.state.activeSymbol && chunk.data[0].lastPrice) {
@@ -53,7 +54,8 @@ export default class App extends Component {
   }
 
   changeSymbol(newSymbol) {
-    console.log(`changeSymbol fired! this is the value passed in --> ${newSymbol}`)
+    this.setState({activeSymbol: newSymbol});
+    this.openWebsocket(this.state.activeSymbol);
   }
 
   targetChange(e) {
@@ -144,7 +146,7 @@ export default class App extends Component {
         </div>
         <div>
           <TradingViewWidget 
-          symbol={"BITMEX:XBTUSD"}
+          symbol={`${this.state.activeExchange}:${this.state.activeSymbol}`}
           theme={Themes.DARK}
           container_id={"technical-analysis"}
           width={"auto"}

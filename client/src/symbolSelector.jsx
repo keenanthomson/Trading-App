@@ -1,7 +1,7 @@
 import React from 'react';
 import {Dropdown, ButtonToolbar, DropdownButton} from 'react-bootstrap';
 
-export default function ExchangeSelector(props) {
+export default function SymbolSelector(props) {
   return (
     <>
       <ButtonToolbar 
