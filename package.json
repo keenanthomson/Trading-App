@@ -48,6 +48,6 @@
   },
   "jest": {
     "verbose": true,
-    "setupFilesAfterEnv": ["<rootDir>test/setupTests.js"]
+    "setupFilesAfterEnv": ["<rootDir>test/config.js"]
   }
 }
