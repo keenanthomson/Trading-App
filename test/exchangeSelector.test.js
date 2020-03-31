@@ -1,11 +1,5 @@
 import ExchangeSelector from '../client/src/exchangeSelector.jsx';
 
-// let wrapper;
-
-// beforeEach(() => {
-//   const wrapper = shallow(<ExchangeSelector /> );
-// });
-
 describe('<ExchangeSelector /> rendering', () => {
   it('should render one <DropdownButton>', () => {
     const elementProps = {
