@@ -48,7 +48,11 @@
   },
   "jest": {
     "verbose": true,
-    "setupFilesAfterEnv": ["<rootDir>test/config.js"]
-
+    "setupFilesAfterEnv": ["<rootDir>test/config.js"],
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "../client/*.{js,jsx}",
+      "!**/node_modules/**"
+    ]
   }
 }
