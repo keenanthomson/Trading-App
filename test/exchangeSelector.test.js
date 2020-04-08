@@ -12,11 +12,9 @@ describe('<ExchangeSelector/> Component', () => {
   });
 
   it('should prevent default onMouseEnter/Leave', () => {
-    const event = {
-      preventDefault: jest.fn()
-    };
-    wrapper.simulate("onmousedown");
-    expect(wrapper.event.preventDefault).toHaveBeenCalled();
+    const event = jest.spyOn(ExchangeSelector.prototype, 'preventDefault');
+    wrapper.find('button').simulate('onmousedown');
+    expect(event).toHaveBeenCalled();
   });
 
 });
