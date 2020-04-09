@@ -2,11 +2,11 @@ import ExchangeSelector from '../client/src/exchangeSelector.jsx';
 
 describe('<ExchangeSelector/> Component', () => {
 
-  const elementProps = {
+  const props = {
     exchanges: ['Bitmex', 'ByBit'],
     activeExchange: 'Bitmex',
   }
-  const wrapper = shallow(<ExchangeSelector {...elementProps}/> );
+  const wrapper = shallow(<ExchangeSelector {...props}/> );
   const event = { preventDefault: () => {} };
   const spy = jest.spyOn(event, 'preventDefault');
 
@@ -23,5 +23,4 @@ describe('<ExchangeSelector/> Component', () => {
     wrapper.find('ButtonToolbar').simulate('mouseUp', event);
     expect(spy).toHaveBeenCalled();
   });
-
 });
