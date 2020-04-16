@@ -17,18 +17,17 @@ Planned features include:
 ---
 
 ## Getting Started
-
-### Prerequisites
-In your terminal,
-- [ ] `npm install`
+* Run `npm install`
 
 ### Starting the App
-In your terminal,
-- [ ] Run webpack `npm run build-dev`
-- [ ] Start your server `npm start`
+* Run webpack build with `npm run build-dev`
+* Start your server with `npm start`
 
 In your browser,
-- [ ] Navigate to `http://localhost:3000`
+* Navigate to `http://localhost:3000`
+
+### Test
+* Run `npm run test`
 
 ## License
 [MIT](https://github.com/keenanthomson/Trading-App/blob/master/LICENSE.md)
