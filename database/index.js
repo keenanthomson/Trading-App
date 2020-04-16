@@ -1,10 +1,11 @@
 const mysql = require('mysql');
+const createTables = require('./config.js');
+
 const db = mysql.createConnection({
-  // host     : 'localhost',
   user     : 'root',
   password : ''
 });
-const database = 'UserEntries';
+const database = 'TradingCalculator';
 
 db.connect(error => {
   if (error) {
@@ -17,8 +18,8 @@ db.connect(error => {
 const dbSetup = async () => {
   await db.query(`CREATE DATABASE IF NOT EXISTS ${database}`);
   await db.query(`USE ${database}`);
-    // await createTables(db);
+  await createTables();
   console.log(`Connected to ${database} database as ID ${db.threadId}`);
-}
+};
 
 module.exports = db;
