@@ -6,7 +6,7 @@
 
 Currently supporting real-time quotes from:
 
-- BitMex [XBTUSD]
+- BitMex [XBTUSD, ETHUSD]
 
 Planned features include:
 - additional real time quotes
