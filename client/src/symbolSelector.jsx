@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import {Dropdown, ButtonToolbar, DropdownButton} from 'react-bootstrap';
 
 export default function SymbolSelector(props) {

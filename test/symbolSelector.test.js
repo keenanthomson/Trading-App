@@ -9,9 +9,11 @@ describe('<SymbolSelector/> Component', () => {
 
   const wrapper = shallow(<SymbolSelector {...props}/>);
   const event = {
-    preventDefault: () => {}
+    preventDefault: () => {},
+    onSelect: () => {}
   };
-  const spy = jest.spyOn(event, 'preventDefault');
+  const spyPreventDefault = jest.spyOn(event, 'preventDefault');
+  const spyOnSelect = jest.spyOn(event, 'onSelect');
 
   it('should render one <DropdownButton/>', () => {
     expect(wrapper.find('DropdownButton')).toHaveLength(1);
@@ -19,12 +21,18 @@ describe('<SymbolSelector/> Component', () => {
 
   it('should prevent default onMouseDown', () => {
     wrapper.find('ButtonToolbar').simulate('mousedown', event);
-    expect(spy).toHaveBeenCalled();
+    expect(spyPreventDefault).toHaveBeenCalled();
   });
 
   it('should prevent default onMouseDown', () => {
     wrapper.find('ButtonToolbar').simulate('mouseup', event);
-    expect(spy).toHaveBeenCalled();
+    expect(spyPreventDefault).toHaveBeenCalled();
+  });
+
+  it('should call changeSymbol method when clicked', () => {
+    wrapper.find('DropdownItem').first().simulate('click', event);
+    expect(spyOnSelect).toHaveBeenCalled();
+    // console.log(`DEBUG --> ${wrapper.debug()}`);
   });
 
 });

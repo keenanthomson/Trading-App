@@ -4,7 +4,7 @@ module.exports = {
     "<rootDir>test/config.js"
   ],
   "testEnvironment": "node",
-  // "collectCoverage": true,
+  "collectCoverage": true,
   "collectCoverageFrom": [
     "client/src/*.{js,jsx}"
   ]
