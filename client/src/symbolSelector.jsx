@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import {Dropdown, ButtonToolbar, DropdownButton} from 'react-bootstrap';
 
 export default function SymbolSelector(props) {
@@ -22,7 +22,7 @@ export default function SymbolSelector(props) {
                   eventKey={elem} 
                   key={idx} 
                   className="symbol-dropdown-item"
-                  onSelect={(evtKey) => props.changeSymbol(evtKey)}
+                  onClick={(evtKey) => props.changeSymbol(evtKey)}
                   >
                     {elem}
                   </Dropdown.Item>

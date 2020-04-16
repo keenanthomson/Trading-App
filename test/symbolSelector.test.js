@@ -2,18 +2,18 @@ import SymbolSelector from '../client/src/symbolSelector.jsx';
 
 describe('<SymbolSelector/> Component', () => {
 
+  const changeSymbol = jest.fn();
+  const event = {
+    preventDefault: jest.fn()
+  };
   const props = {
     symbols: ['XBTUSD', 'ETHUSD'],
-    activeSymbol: 'XBTUSD'
+    activeSymbol: 'XBTUSD',
+    changeSymbol
   };
-
   const wrapper = shallow(<SymbolSelector {...props}/>);
-  const event = {
-    preventDefault: () => {},
-    onSelect: () => {}
-  };
   const spyPreventDefault = jest.spyOn(event, 'preventDefault');
-  const spyOnSelect = jest.spyOn(event, 'onSelect');
+  // const spyOnSelect = jest.spyOn(event, 'onSelect');
 
   it('should render one <DropdownButton/>', () => {
     expect(wrapper.find('DropdownButton')).toHaveLength(1);
@@ -30,9 +30,8 @@ describe('<SymbolSelector/> Component', () => {
   });
 
   it('should call changeSymbol method when clicked', () => {
-    wrapper.find('DropdownItem').first().simulate('click', event);
-    expect(spyOnSelect).toHaveBeenCalled();
-    // console.log(`DEBUG --> ${wrapper.debug()}`);
+    wrapper.find('DropdownItem').first().simulate('click');
+    expect(props.changeSymbol).toHaveBeenCalled();
   });
 
 });
