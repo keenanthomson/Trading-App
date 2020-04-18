@@ -18,7 +18,7 @@ db.connect(error => {
 const dbSetup = async () => {
   await db.query(`CREATE DATABASE IF NOT EXISTS ${database}`);
   await db.query(`USE ${database}`);
-  await createTables();
+  await createTables(db, database);
   console.log(`Connected to ${database} database as ID ${db.threadId}`);
 };
 

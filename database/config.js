@@ -1,17 +1,22 @@
-const db = require('./index.js');
+const tableName = userEntries;
 
-console.log(db);
+const createTableQueries = (connection, database) => {
+  connection.query(`USE ${database};`)
+  connection.query(createTableQuery, (error, results, fields) => {
+    if (error) {
+      console.log(`Create table query error -> ${error}`);
+    } else {
+      console.log(``)
+    }
+  });
+};
 
 const createTableQuery = `
-CREATE TABLE IF NOT EXISTS userEntries (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  userID VARCHAR(64),
-  checkin INT,
-  checkout INT
+  CREATE TABLE IF NOT EXISTS ${tableName} (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userID VARCHAR(64),
+    checkin INT,
+    checkout INT
 );`
 
-db.query(createTableQuery, (error, results, fields) => {
-  if (error) {
-    console.log(`Create table query error -> ${error}`);
-  };
-});
+module.exports = createTableQueries;
