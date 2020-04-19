@@ -13,7 +13,7 @@ const createTableQueries = async (connection, database) => {
 
 const createTableQuery = `
   CREATE TABLE IF NOT EXISTS ${tableName} (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    record_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id VARCHAR(64),
     trade_saved_date DATETIME,
     entry_price INT,
@@ -21,5 +21,7 @@ const createTableQuery = `
     target_price INT
 );`
 
-module.exports.createTableQueries = createTableQueries;
-module.exports.tableName = tableName;
+module.exports = {
+  createTableQueries: createTableQueries,
+  tableName: tableName
+};

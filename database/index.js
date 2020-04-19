@@ -13,13 +13,13 @@ db.connect(error => {
   } else {
     dbSetup();
   };
-});
+}); 
 
 const dbSetup = async () => {
-  await db.query(`CREATE DATABASE IF NOT EXISTS ${database}`);
-  await db.query(`USE ${database}`);
+  await db.query(`CREATE DATABASE IF NOT EXISTS ${databaseName}`);
+  await db.query(`USE ${databaseName}`);
   await createTableQueries(db, databaseName);
-  return console.log(`Connected to ${database} database as ID ${db.threadId}`);
+  return console.log(`Connected to ${databaseName} database as ID ${db.threadId}`);
 };
 
 module.exports = db;
