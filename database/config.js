@@ -1,4 +1,4 @@
-const tableName = 'userEntries';
+const tableName = 'user_entries';
 
 const createTableQueries = async (connection, database) => {
   await connection.query(`USE ${database};`);
@@ -21,4 +21,5 @@ const createTableQuery = `
     target_price INT
 );`
 
-module.exports = createTableQueries;
+module.exports.createTableQueries = createTableQueries;
+module.exports.tableName = tableName;
