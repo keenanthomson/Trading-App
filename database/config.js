@@ -1,8 +1,8 @@
 const tableName = 'user_entries';
 
-const createTableQueries = async (connection, database) => {
-  await connection.query(`USE ${database};`);
-  await connection.query(createTableQuery, (error, results, fields) => {
+const createTableQueries = (connection, database) => {
+  connection.query(`USE ${database};`);
+  connection.query(createTableQuery, (error, results, fields) => {
     if (error) {
       console.log(`Create table query error -> ${error}`);
     } else {

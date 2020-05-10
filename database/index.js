@@ -15,10 +15,10 @@ db.connect(error => {
   };
 }); 
 
-const dbSetup = async () => {
-  await db.query(`CREATE DATABASE IF NOT EXISTS ${databaseName}`);
-  await db.query(`USE ${databaseName}`);
-  await createTableQueries(db, databaseName);
+const dbSetup = () => {
+  db.query(`CREATE DATABASE IF NOT EXISTS ${databaseName}`);
+  db.query(`USE ${databaseName}`);
+  createTableQueries(db, databaseName);
   return console.log(`Connected to ${databaseName} database as ID ${db.threadId}`);
 };
 
