@@ -6,7 +6,7 @@ const createTableQueries = (connection, database) => {
     if (error) {
       console.log(`Create table query error -> ${error}`);
     } else {
-      console.log(``)
+      console.log(`Table ${tableName} created successfully.`)
     };
   });
 };
